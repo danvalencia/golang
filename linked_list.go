@@ -125,7 +125,3 @@ func (n *Node) String() string {
 func (l *LinkedList) Empty() bool {
 	return l.count == 0
 }
-
-func main() {
-
-}
