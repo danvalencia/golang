@@ -1,4 +1,4 @@
-package main
+package ds
 
 // Queue is an interface that implementes queueing behavior
 type Queue interface {

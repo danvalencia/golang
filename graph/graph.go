@@ -1,7 +1,9 @@
-package main
+package graph
 
 import (
 	"fmt"
+
+	"github.com/danvalencia/golang/ds"
 )
 
 // Graph represents a graph using an adjacency list
@@ -10,9 +12,10 @@ type Graph struct {
 }
 
 func (graph *Graph) bfs() {
+
 	visiting := make(map[string]bool)
 
-	var queue Queue = &LinkedList{}
+	var queue ds.Queue = &ds.LinkedList{}
 	nodes := make([]string, len(graph.adjacencyList))
 
 	i := 0

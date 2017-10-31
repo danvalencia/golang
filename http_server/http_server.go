@@ -130,6 +130,6 @@ func startServer() {
 	}
 }
 
-func mainHTTPServer() {
+func main() {
 	startServer()
 }

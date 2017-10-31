@@ -1,4 +1,4 @@
-package main
+package ds
 
 // Stack is a FIFO structure
 type Stack interface {
