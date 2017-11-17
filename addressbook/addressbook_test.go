@@ -1,22 +1,31 @@
-package models
+package addressbook
 
 import (
+	"fmt"
 	"testing"
-
-	pb "github.com/danvalencia/golang/addressbook/models"
 )
 
 func TestShouldSerializeObject(t *testing.T) {
-	person := &pb.Person{
+	addressBookFile := "/Users/dvalencia/.addressbook.txt"
+	var addressBook *AddressBook
+	addressBook, err := Read(addressBookFile)
+
+	if err != nil {
+		addressBook = NewAddressBook()
+	}
+
+	person := &Person{
 		Id:    1234,
 		Name:  "Daniel Valencia",
 		Email: "danvalencia@gmail.com",
-		Phones: []*pb.Person_PhoneNumber{
-			{Number: "331-347-3493", Type: pb.Person_HOME},
+		Phones: []*Person_PhoneNumber{
+			{Number: "331-347-3493", Type: Person_HOME},
 		},
 	}
 
-	if person == nil {
-		t.Errorf("person should not be nil")
-	}
+	addressBook.AddToBook(person)
+
+	addressBook.Write(addressBookFile)
+
+	fmt.Printf("AddressBook: %v", addressBook)
 }
